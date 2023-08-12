@@ -1,8 +1,8 @@
-![filepreview-es6](https://img.shields.io/npm/dt/filepreview-es6.svg)
-
 # About
 
-filepreview : A fork of filepreview generator for node.js with added and customized functionality 
+https://www.npmjs.com/package/filepreview_ts
+
+filepreview : A fork of filepreview generator for node.js now in typescript
 
 background option for images and option to keep pdf as a standby
 
@@ -45,7 +45,7 @@ filepreview depends on 'curl':
 To install use npm:
 
 ```
-  $ npm install filepreview
+  $ npm install filepreview_ts
 ```
 
 ##Test
