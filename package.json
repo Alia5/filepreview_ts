@@ -1,14 +1,24 @@
 {
-  "name": "filepreview-es6",
-  "version": "1.0.8",
+  "name": "filepreview_ts",
+  "version": "1.0.0",
   "description": "A file preview generator for node.js a fork from maxlabale original fileprivew",
-  "main": "filepreview.js",
-  "scripts": {
-    "test": "./node_modules/.bin/mocha  test/filepreview"
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist.cjs/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+      ".": {
+          "import": "./dist/index.js",
+          "require": "./dist.cjs/index.js",
+          "types": "./dist/index.d.ts"
+      }
   },
+  "files": [
+      "dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sahilsharmafrank/filepreview.git"
+    "url": "git+https://github.com/Alia5/filepreview_ts.git"
   },
   "keywords": [
     "video",
@@ -20,15 +30,35 @@
     "visual",
     "document"
   ],
-  "author": "Sahil Sharma (https://github.com/sahilsharmafrank/filepreview)",
+  "author": "Peter Repkat - FlatspoSoftware",
   "license": "BSD-4-Clause",
   "bugs": {
-    "url": "https://github.com/sahilsharmafrank/filepreview/issues"
+    "url": "https://github.com/Alia5/filepreview_ts/issues"
   },
-  "homepage": "https://github.com/sahilsharmafrank/filepreview#readme",
+  "homepage": "https://github.com/Alia5/filepreview_ts#readme",
+  "scripts": {
+        "lint": "eslint src/",
+        "lint:fix": "eslint src/ --fix",
+        "test": "jest",
+        "clean": "rimraf dist dist.cjs",
+        "build:types": "concurrently 'tsc -p tsconfig.json --outDir dist.cjs --emitDeclarationOnly --declaration' 'tsc -p tsconfig.json --outDir dist --emitDeclarationOnly --declaration'",
+        "build": "rollup -c && pnpm run build:types",
+        "dev": "rollup -c --watch --watch.onEnd=\"pnpm run build:types\""
+    },
   "dependencies": {},
   "devDependencies": {
-    "chai": "^4.1.2",
-    "mocha": "^4.1.0"
+    "@types/node": "^20.4.9",
+    "@rollup/plugin-commonjs": "^25.0.3",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "eslint": "^8.46.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-no-null": "^1.0.2",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-tsc": "^2.0.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "typescript": "^5.1.6",
+    "rollup": "^3.28.0"
   }
 }

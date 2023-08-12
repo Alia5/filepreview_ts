@@ -4,4 +4,4 @@ test/documents/*
 test/thumbnail/*
 package-lock.json
 .vscode
-
+dist
